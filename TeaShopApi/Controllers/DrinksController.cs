@@ -35,5 +35,34 @@ namespace TeaShopApi.Controllers
             _drinkService.TInsert(drink);
             return Ok("İçeceğiniz Eklendi");
         }
+
+        [HttpDelete]
+        public IActionResult DeleteDrink(int id)
+        {
+            var value = _drinkService.TGetById(id);
+            _drinkService.TDelete(value);
+            return Ok("İçecek silindi");
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetDrink(int id)
+        {
+            var value = _drinkService.TGetById(id);
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateDrink(UpdateDrinkDto updateDrinkDto)
+        {
+            Drink drink = new Drink()
+            {
+                DrinkImageUrl = updateDrinkDto.DrinkImageUrl,
+                DrinkName = updateDrinkDto.DrinkName,
+                DrinkPrice = updateDrinkDto.DrinkPrice,
+                DrinkID = updateDrinkDto.DrinkID
+            };
+            _drinkService.TUpdate(drink);
+            return Ok("Güncelleme Yapıldı");
+        }
     }
 }

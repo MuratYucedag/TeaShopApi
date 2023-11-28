@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("PartialHeader.cshtml","AdminLayout")
+<body class="">
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+	@await Html.PartialAsync("PartialSidebar.cshtml","AdminLayout")
+	@await Html.PartialAsync("PartialNavbar.cshtml","AdminLayout")
+	<div class="pcoded-main-container">
+		<div class="pcoded-content">
+			<div class="page-header">
+				<div class="page-block">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="page-header-title">
+								<h5 class="m-b-10">Sample Page</h5>
+							</div>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+								<li class="breadcrumb-item"><a href="#!">Sample Page</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			@RenderBody()
+		</div>
+	</div>	
+	<script src="~/flat-able-lite/dist/assets/js/vendor-all.min.js"></script>
+	<script src="~/flat-able-lite/dist/assets/js/plugins/bootstrap.min.js"></script>
+	<script src="~/flat-able-lite/dist/assets/js/pcoded.min.js"></script>
+</body>
+</html>
